@@ -43,8 +43,10 @@ src/
   game/
     mod.rs            # GamePlugin composition
     state.rs          # Game states
-    resources.rs      # Shared game resources and data
+    resources.rs      # Shared utility resources
     constants.rs      # Board and camera constants
+    board.rs          # Board cell data
+    score.rs          # Score and cake count resource
     setup.rs          # World, board, player, and asset setup
     player.rs         # Player movement and cake pickup logic
     camera.rs         # Camera setup and focus tracking
@@ -57,4 +59,4 @@ assets/
 
 ## Architecture
 
-The game logic is organized around Bevy plugins. `main.rs` registers `DefaultPlugins` and the top-level `GamePlugin`. `GamePlugin` initializes shared state/resources and composes focused sub-plugins for setup, player control, camera behavior, bonus spawning, and UI.
+The game logic is organized around Bevy plugins. `main.rs` registers `DefaultPlugins` and the top-level `GamePlugin`. `GamePlugin` initializes focused resources for the board, score, player, bonus, and camera, then composes sub-plugins for setup, player control, camera behavior, bonus spawning, and UI.
